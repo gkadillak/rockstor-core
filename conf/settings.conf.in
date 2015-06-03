@@ -111,6 +111,7 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     # 'django.contrib.staticfiles.finders.FileSystemFinder',
     # 'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    'compressor.finders.CompressorFinder'
 )
 
 # Make this unique, and don't share it with anybody.
@@ -159,7 +160,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'storageadmin',
-    'pipeline',
+    'compressor',
     'rest_framework',
     'smart_manager',
     'south',
@@ -168,47 +169,6 @@ INSTALLED_APPS = (
     'django_ztask',
 )
 
-STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
-
-PIPELINE_CSS_COMPRESOR = None
-PIPELINE_JS_COMPRESSOR = None
-
-# Dont wrap in anonymous function so that license is at the top.
-PIPELINE_DISABLE_WRAPPER = True
-
-PIPELINE_JS = {
-    'storageadmin': {
-        'source_filenames': (
-            'storageadmin/js/license.js',
-            'storageadmin/js/templates/**/*.jst',
-            'storageadmin/js/templates/**/**/*.jst',
-            'storageadmin/js/rockstor.js',
-            'storageadmin/js/rockstor_widgets.js',
-            'storageadmin/js/rockstor_logger.js',
-            'storageadmin/js/paginated_collection.js',
-            'storageadmin/js/router.js',
-            'storageadmin/js/graph.js',
-            'storageadmin/js/d3.slider2.js',
-            'storageadmin/js/socket_listen.js',
-            'storageadmin/js/models/models.js',
-            'storageadmin/js/views/*.js',
-            'storageadmin/js/views/pool/**/*.js',
-            'storageadmin/js/views/dashboard/*.js',
-            ),
-        'output_filename': 'storageadmin/js/storageadmin.js'
-        },
-    'backup_plugin': {
-        'source_filenames': (
-            'backup/js/router.js',
-            'backup/js/templates/**/*.jst',
-            'backup/js/views/add_backup_policy.js',
-            'backup/js/views/backup.js',
-            'backup/js/views/backup_trails.js',
-            'backup/js/models/models.js',
-        ),
-        'output_filename': 'backup/js/backup_plugin.js'
-        }
-    }
 
 
 # A sample logging configuration. The only tangible logging

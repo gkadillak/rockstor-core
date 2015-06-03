@@ -55,7 +55,7 @@ setup(
         'URLObject == 2.1.1',
         'djangorestframework == 3.1.1',
         'pytz == 2014.3',
-        'django-pipeline == 1.2.23',
+        'django_compressor',
         'requests == 1.1.0',
         'pyzmq == 13.0.0',
         'South == 0.8.4',
